@@ -1,29 +1,29 @@
-# BMad's Best Practices Cursor Custom Agents and Rules Generator
+# Générateur de Règles et d'Agents Personnalisés Cursor selon les Bonnes Pratiques de BMad
 
-April 19, 2025
+19 avril 2025
 
-The updates to cursor with 0.49 have made big improvements to rules finally! Some much needed bug fixes.
+Les mises à jour de Cursor avec la version 0.49 ont enfin apporté d'importantes améliorations aux règles ! Des correctifs de bugs très attendus.
 
-New [video](https://youtu.be/1wQUio9TiIQ?si=3KT5NiO5mDL8GR5P) and [repo](https://github.com/bmadcode/BMAD-METHOD) is up showing how to use the custom agents in conjunction with rules. This is more cursor agnostic if you want to try using other tools in conjunction with Cursor.
+Une nouvelle [vidéo](https://youtu.be/1wQUio9TiIQ?si=3KT5NiO5mDL8GR5P) et un nouveau [dépôt](https://github.com/bmadcode/BMAD-METHOD) sont disponibles, montrant comment utiliser les agents personnalisés en conjonction avec les règles. Cette approche est plus indépendante de Cursor si vous souhaitez essayer d'utiliser d'autres outils en combinaison avec Cursor.
 
-April 16, 2025
+16 avril 2025
 
-You can now generate rules directly in a conversation using the `/Generate Cursor Rules` command. This makes it easy to define how the agent should behave without leaving the chat.
+Vous pouvez désormais générer des règles directement dans une conversation en utilisant la commande `/Generate Cursor Rules`. Cela permet de définir facilement le comportement de l'agent sans quitter le chat.
 
-BMad Version: 3.1 (March 30, 2025)
-Cursor Version: 0.48+
+Version BMad : 3.1 (30 mars 2025)
+Version Cursor : 0.48+
 
-Note from BMad: This repo has become much more successful than I originally envisioned, and I want to thank everyone for the feedback, support, contributions, and also feedback on the youtube channel. I now realize that many are using what I originally thought would be just a way to document some best practices around cursor rules and a simple rule that helps generate the rules - all with the intent of creating a separate updated workflow repo and set of documentation. But this has evolved.
+Note de BMad : Ce dépôt a connu un succès bien plus important que ce que j'avais initialement envisagé, et je tiens à remercier tout le monde pour les commentaires, le soutien, les contributions, ainsi que les retours sur la chaîne YouTube. Je réalise maintenant que beaucoup utilisent ce que je pensais être simplement un moyen de documenter quelques bonnes pratiques concernant les règles de Cursor et une règle simple qui aide à générer ces règles - le tout dans le but de créer un dépôt de flux de travail et un ensemble de documentation mis à jour séparés. Mais cela a évolué.
 
-With that in mind, going forward after this correction update - any major changes will follow a versioning standard, and upgrade paths or instructions to migrate if you are already using a prior version of rules or workflows whenever there is a significant potentially breaking change - although I will try to avoid that somehow depending on what comes with Cursor updates or workflow improvements. Keep in mind most changes are to keep up to date with the constantly evolving Cursor IDE and feature release - so there will be continuos changes. Also with that in mind, know that the long game end goal is to build and work in ways that will be less prone to needing to change or flaky as cursor makes changes. This is one reason for example that the workflows outlined further on are now evolving to the superior custom agent modes.
+Dans cette optique, après cette mise à jour de correction, toutes les modifications majeures suivront une norme de versionnement, avec des chemins de mise à niveau ou des instructions de migration si vous utilisez déjà une version antérieure des règles ou des flux de travail lorsqu'il y a un changement potentiellement important - bien que j'essaierai d'éviter cela en fonction de ce qui arrive avec les mises à jour de Cursor ou les améliorations du flux de travail. Gardez à l'esprit que la plupart des changements visent à rester à jour avec l'évolution constante de l'IDE Cursor et les nouvelles fonctionnalités - il y aura donc des changements continus. Dans cette même optique, sachez que l'objectif final à long terme est de construire et de travailler de manières qui seront moins sujettes à nécessiter des changements ou à être instables lorsque Cursor évolue. C'est une des raisons pour lesquelles les flux de travail décrits plus loin évoluent maintenant vers les modes d'agents personnalisés supérieurs.
 
-The name of the repo has changed to BMad Cursor Master Workflow Agent and Rules - this is still the ever evolving same project regarding rules best practices, but its evolving and expanding in features and capability as cursor evolves, becoming more and more powerful to meet the needs of the Cursor and AI Development community, as this may eventually expand beyond cursor.
+Le nom du dépôt est devenu BMad Cursor Master Workflow Agent and Rules - il s'agit toujours du même projet en constante évolution concernant les meilleures pratiques de règles, mais il évolue et s'étend en fonctionnalités et en capacités à mesure que Cursor évolue, devenant de plus en plus puissant pour répondre aux besoins de la communauté de développement Cursor et IA, car cela pourrait éventuellement s'étendre au-delà de Cursor.
 
-Please view the [CHANGELOG](./CHANGELOG.md) for important updates and usage announcements.
+Veuillez consulter le [JOURNAL DES MODIFICATIONS](./CHANGELOG.md) pour les mises à jour importantes et les annonces d'utilisation.
 
-## Important Updates TL;DR (March 25, 2025)
+## Mises à jour importantes - En résumé (25 mars 2025)
 
-> 💡 **IDE Setting HIGHLY Suggested:** For best results with rule generation, update your Cursor settings by adding:
+> 💡 **Paramètre IDE FORTEMENT suggéré :** Pour de meilleurs résultats avec la génération de règles, mettez à jour vos paramètres Cursor en ajoutant :
 >
 > ```json
 > "workbench.editorAssociations": {
@@ -31,103 +31,103 @@ Please view the [CHANGELOG](./CHANGELOG.md) for important updates and usage anno
 > }
 > ```
 
-This prevents UI rendering issues with .mdc files in a custom rules form and ensures proper save functionality, and makes it easier to see what the actual rules look like (specifically around hidden FrontMatter).
+Cela évite les problèmes d'affichage de l'interface utilisateur avec les fichiers .mdc dans un formulaire de règles personnalisées, assure une fonctionnalité de sauvegarde correcte et facilite la visualisation de l'apparence réelle des règles (notamment concernant le FrontMatter caché).
 
-## Overview
+## Aperçu
 
-If you would like to see a [Video Demo and Walkthrough](https://youtu.be/jEhvwYkI-og) start here, please also subscribe for more Cursor tutorials all coming real soon!
+Si vous souhaitez voir une [Démo Vidéo et un Tutoriel](https://youtu.be/jEhvwYkI-og), commencez ici. N'hésitez pas à vous abonner pour plus de tutoriels Cursor qui arrivent très bientôt !
 
-This template dramatically improves AI workflows in Agent and Custom mode by providing:
+Ce modèle améliore considérablement les flux de travail IA en mode Agent et Personnalisé en fournissant :
 
-1. **Automated Rule Generation:** Create and update rules through natural language requests for all 4 main supported rule types correctly following the required Cursor conventions
-2. **Automated Custom Agent Generation:** Create and update new custom agents by describing it to the AI, who will then add or update entires in .cursor/modes.json
-3. **Consistent AI Behavior:** Rules are applied automatically when appropriate or on demand or always depending on which of the 4 rule types are created/exist
-4. **Quick Project Setup:** A script that will set up a new project with core rules and workflow, or add the rule generator to an existing project in a non destructive manner to existing cursor rules.
-5. **Custom Agent Workflow Instructions:** A new guide is COMING SOON along with a new video on how to follow the massively scalable and successful Agent Agile workflow with multiple specialized Custom Agents, that are much safer and more reliable than any full blown single agent being driven by a massive workflow and extensive rules (the previous way of working)
-6. **Custom Agent Samples:** This repo contains both a vanilla set of sample custom agents in a defined modes.json file that will get copied over when running the apply-rules script, and also has some more fun character personality based options in the samples folder, which exists for illustration (although can be used just as successfully and with more fun when working with the agent) - these will not copy to the new project folder automatically.
+1. **Génération automatisée de règles :** Créez et mettez à jour des règles via des requêtes en langage naturel pour les 4 principaux types de règles pris en charge, en suivant correctement les conventions requises par Cursor
+2. **Génération automatisée d'agents personnalisés :** Créez et mettez à jour de nouveaux agents personnalisés en les décrivant à l'IA, qui ajoutera ou mettra à jour les entrées dans .cursor/modes.json
+3. **Comportement IA cohérent :** Les règles sont appliquées automatiquement quand c'est approprié, à la demande ou toujours, selon le type de règle créé/existant
+4. **Configuration rapide de projet :** Un script qui configurera un nouveau projet avec les règles de base et le flux de travail, ou ajoutera le générateur de règles à un projet existant de manière non destructive pour les règles Cursor existantes
+5. **Instructions de flux de travail pour agents personnalisés :** Un nouveau guide arrive BIENTÔT avec une nouvelle vidéo sur comment suivre le flux de travail Agile extrêmement évolutif et réussi avec plusieurs agents personnalisés spécialisés, qui sont beaucoup plus sûrs et plus fiables que n'importe quel agent unique complet géré par un flux de travail massif et des règles étendues (l'ancienne façon de travailler)
+6. **Exemples d'agents personnalisés :** Ce dépôt contient à la fois un ensemble standard d'agents personnalisés échantillons dans un fichier modes.json défini qui sera copié lors de l'exécution du script apply-rules, et également des options plus amusantes basées sur des personnalités de personnages dans le dossier samples, qui existe à des fins d'illustration (bien qu'elles puissent être utilisées avec autant de succès et plus de plaisir en travaillant avec l'agent) - celles-ci ne seront pas copiées automatiquement dans le nouveau dossier de projet.
 
-> 💡 **Note:** For a complete guide to the Agile-Cursor Workflow system without using custom agents (no longer recommended), see [Agile Workflow Documentation](docs/agile-readme.md).
+> 💡 **Remarque :** Pour un guide complet du système de flux de travail Agile-Cursor sans utiliser d'agents personnalisés (non recommandé désormais), consultez la [Documentation du Flux de Travail Agile](docs/agile-readme.md).
 
-## Key Concepts Regarding Cursor Rules
+## Concepts Clés Concernant les Règles Cursor
 
-- Rules use frontmatter with proper YAML format (description, globs, alwaysApply)
-- Rules will be generated with explicitly requesting a rule be create, or implied by asking for corrective behavior from the agent
-- Rules are enhanced by including both a valid and invalid example to better train the llm
-- Short, focused rules (target: 25 lines, maximum: 50 lines)
-- Four rule types within an automatically organized subfolder categorization structure
-- Rules will be generated in the proper location under .cursor/rules/sub-folder - remember though sub folder or not - cursor rules must be in the .cursor/rules or a subfolder, and must have the extension .mdc.
+- Les règles utilisent un frontmatter au format YAML approprié (description, globs, alwaysApply)
+- Les règles seront générées en demandant explicitement la création d'une règle, ou implicitement en demandant un comportement correctif de l'agent
+- Les règles sont améliorées en incluant à la fois un exemple valide et un exemple invalide pour mieux entraîner le modèle de langage
+- Règles courtes et ciblées (objectif : 25 lignes, maximum : 50 lignes)
+- Quatre types de règles dans une structure de catégorisation de sous-dossiers organisée automatiquement
+- Les règles seront générées à l'emplacement approprié sous .cursor/rules/sous-dossier - rappelons toutefois que, sous-dossier ou non, les règles de cursor doivent être dans .cursor/rules ou un sous-dossier, et doivent avoir l'extension .mdc.
 
-## Quick Start Options
+## Options de Démarrage Rapide
 
-### A) npm cli
+### A) CLI npm
 
-#### 🛠 Requirements
+#### 🛠 Prérequis
 
 - Node.js >= 22.14.0
 
-#### 📥 Installation & Usage
+#### 📥 Installation et Utilisation
 
 ```bash
-npx cursor-rules-deploy /path/to/your/project
+npx cursor-rules-deploy /chemin/vers/votre/projet
 ```
 
-For more usage examples, refer to [cursor-rules-deploy](https://github.com/rosendolu/cursor-rules-deploy#readme)
+Pour plus d'exemples d'utilisation, consultez [cursor-rules-deploy](https://github.com/rosendolu/cursor-rules-deploy#readme)
 
-### B) New Project Setup
+### B) Configuration d'un Nouveau Projet
 
-Start a new project with the Agile Workflow and Rules Generator:
+Démarrez un nouveau projet avec le Générateur de Flux de Travail Agile et de Règles :
 
 ```bash
-# Clone this repository
+# Clonez ce dépôt
 git clone https://github.com/bmadcode/cursor-auto-rules-agile-workflow.git
 cd cursor-auto-rules-agile-workflow
 
-# Create new project with rules
-./apply-rules.sh /path/to/your/project
+# Créez un nouveau projet avec les règles
+./apply-rules.sh /chemin/vers/votre/projet
 
-# Example:
-./apply-rules.sh ~/projects/my-project
+# Exemple :
+./apply-rules.sh ~/projets/mon-projet
 ```
 
-The script creates your project folder (if needed) with all rules, documentation, and configuration files to start with the agile workflow.
+Le script crée votre dossier de projet (si nécessaire) avec toutes les règles, la documentation et les fichiers de configuration pour commencer avec le flux de travail agile.
 
-### C) Add to Existing Project
+### C) Ajout à un Projet Existant
 
-Enhance your current project with the rules generator:
+Améliorez votre projet actuel avec le générateur de règles :
 
 ```bash
-# Clone this repository
+# Clonez ce dépôt
 git clone https://github.com/bmadcode/cursor-auto-rules-agile-workflow.git
 cd cursor-auto-rules-agile-workflow
 
-# Apply rules to your project
-./apply-rules.sh /path/to/your/project
+# Appliquez les règles à votre projet
+./apply-rules.sh /chemin/vers/votre/projet
 ```
 
-The script will:
+Le script va :
 
-1. Copy template rules to your project's `.cursor/rules/` directory
-2. Add workflow documentation
-3. Preserve any existing rules
+1. Copier les règles modèles dans le répertoire `.cursor/rules/` de votre projet
+2. Ajouter la documentation du flux de travail
+3. Préserver toutes les règles existantes
 
-## How Rule Generation Works
+## Comment Fonctionne la Génération de Règles
 
 ```mermaid
 graph TD
-    subgraph User Actions
-        A[User requests rule creation<br>in agent chat] --> B[Agent processes rule request]
-        H[User continues<br>development with new rule] --> A
+    subgraph Actions Utilisateur
+        A[L'utilisateur demande la création<br>d'une règle dans le chat de l'agent] --> B[L'agent traite la demande de règle]
+        H[L'utilisateur continue<br>le développement avec la nouvelle règle] --> A
     end
 
-    subgraph Rule Processing
-        B --> C[rule-generating-agent monitors<br>for rule creation requests]
-        C --> D[Agent determines rule type:<br>Agent, Always, Auto, or Manual]
-        D --> E[Agent creates rule with<br>appropriate frontmatter configuration]
-        E --> F[Agent categorizes rule<br>and adds to proper subfolder]
-        F --> G[Agent responds with<br>rule creation summary]
+    subgraph Traitement des Règles
+        B --> C[rule-generating-agent surveille<br>les demandes de création de règles]
+        C --> D[L'agent détermine le type de règle :<br>Agent, Always, Auto, ou Manual]
+        D --> E[L'agent crée la règle avec<br>la configuration frontmatter appropriée]
+        E --> F[L'agent catégorise la règle<br>et l'ajoute au sous-dossier approprié]
+        F --> G[L'agent répond avec<br>un résumé de création de règle]
     end
 
-    subgraph Continuous Improvement
+    subgraph Amélioration Continue
         G --> H
     end
 
@@ -141,96 +141,96 @@ graph TD
     style H fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
-## Example Rule Generation Prompts
+## Exemples de Requêtes pour la Génération de Règles
 
-No need to explicitly say "create a rule" - just describe the desired behavior:
+Pas besoin de dire explicitement "créer une règle" - décrivez simplement le comportement souhaité :
 
-- "Create a typescript file commenting standard that balances thoroughness with brevity"
-- "Please create an agent rule so that whenever I request deep research specifically on a topic you will first always inject the system date time into the context and use the Tavily search MCP tool to improve the results."
-- "Never create JS files again, you will only create TS or JSON files!" or "I asked you to set up Jest for our project and you created a JestConfig.js file, yet this is a TypeScript only project. Never again create any JS files. Always use TypeScript or JSON if necessary." - the second version of this request will ensure that the rule examples includes this specific call out, helping the agent learn better from actual mistakes made.
-- "Ensure proper error handling in all TypeScript files"
-- "Talk like a pirate in communications but not in code or documentation"
-- "Update testing standards to require 80% coverage"
-- "Enforce consistent naming conventions in my code"
-- "Standardize documentation formats"
-- "Keep imports organized in groups alphabetically in TypeScript files"
+- "Créez une norme de commentaires pour les fichiers typescript qui équilibre la rigueur et la concision"
+- "Veuillez créer une règle d'agent afin que chaque fois que je demande une recherche approfondie sur un sujet spécifique, vous injectiez d'abord toujours la date et l'heure du système dans le contexte et utilisiez l'outil MCP Tavily search pour améliorer les résultats."
+- "Ne créez plus jamais de fichiers JS, vous ne créerez que des fichiers TS ou JSON !" ou "Je vous ai demandé de configurer Jest pour notre projet et vous avez créé un fichier JestConfig.js, alors que c'est un projet uniquement TypeScript. Ne créez plus jamais de fichiers JS. Utilisez toujours TypeScript ou JSON si nécessaire." - la seconde version de cette demande garantira que les exemples de règles incluent cette précision spécifique, aidant l'agent à mieux apprendre des erreurs réelles commises.
+- "Assurez une gestion d'erreurs appropriée dans tous les fichiers TypeScript"
+- "Parlez comme un pirate dans les communications mais pas dans le code ou la documentation"
+- "Mettez à jour les normes de test pour exiger une couverture de 80%"
+- "Appliquez des conventions de nommage cohérentes dans mon code"
+- "Standardisez les formats de documentation"
+- "Gardez les importations organisées en groupes alphabétiques dans les fichiers TypeScript"
 
-The AI automatically:
+L'IA automatiquement :
 
-1. Creates/updates the rule file
-2. Places it in the correct location
-3. Follows formatting standards
-4. Maintains version control
+1. Crée/met à jour le fichier de règle
+2. Le place au bon endroit
+3. Suit les normes de formatage
+4. Maintient le contrôle de version
 
-## Rule Types
+## Types de Règles
 
-| Rule Type        | Usage                                            | description Field | globs Field           | alwaysApply field |
-| ---------------- | ------------------------------------------------ | ----------------- | --------------------- | ----------------- |
-| Agent Selected   | Agent sees description and chooses when to apply | critical          | blank                 | false             |
-| Always           | Applied to every chat and cmd-k request          | blank             | blank                 | true              |
-| Auto Select      | Applied to matching existing files               | blank             | critical glob pattern | false             |
-| Auto Select+desc | Better for new files                             | included          | critical glob pattern | false             |
-| Manual           | User must reference in chat                      | blank             | blank                 | false             |
+| Type de Règle      | Utilisation                                           | Champ description | Champ globs            | Champ alwaysApply |
+| ------------------ | ----------------------------------------------------- | ----------------- | ---------------------- | ----------------- |
+| Agent Selected     | L'agent voit la description et choisit quand appliquer| critique          | vide                   | false             |
+| Always             | Appliquée à chaque chat et requête cmd-k              | vide              | vide                   | true              |
+| Auto Select        | Appliquée aux fichiers existants correspondants       | vide              | motif glob critique    | false             |
+| Auto Select+desc   | Meilleure pour les nouveaux fichiers                  | inclus            | motif glob critique    | false             |
+| Manual             | L'utilisateur doit la référencer dans le chat         | vide              | vide                   | false             |
 
-## Private Rules, MCP Config and Custom Agents.
+## Règles Privées, Configuration MCP et Agents Personnalisés
 
-If you want to have rules that are not used by others in the repository - you can add rules to a .cursor/rules folder in your user folder. They will also be applied to every project you open, which is a potential benefit. Additionally you can use custom agents with their own rules, that are not shared. In the future when Cursor adds the ability to have a agents.json file (or similarly named) - then you should still be able to add it to the user folder .cursor folder. This also works with mcp.json.
+Si vous souhaitez avoir des règles qui ne sont pas utilisées par d'autres dans le dépôt - vous pouvez ajouter des règles à un dossier .cursor/rules dans votre dossier utilisateur. Elles seront également appliquées à chaque projet que vous ouvrez, ce qui est un avantage potentiel. De plus, vous pouvez utiliser des agents personnalisés avec leurs propres règles, qui ne sont pas partagées. À l'avenir, lorsque Cursor ajoutera la possibilité d'avoir un fichier agents.json (ou similaire) - vous devriez toujours pouvoir l'ajouter au dossier .cursor du dossier utilisateur. Cela fonctionne également avec mcp.json.
 
-## Custom Agent Generation
+## Génération d'Agents Personnalisés
 
-Custom Agents allow scoping and guidance to what an agent can and cannot do, more directly than using cursor rules files. With a custom agent, you can specify what tools the agent can and cannot use (both cursor native and mcp), and more importantly you can control what model it uses and give it a custom prompt to guide how it operates. This is like a direct injection of a clear always rule for this specific type of agent you have created. When combined with the Agile workflow, you can have a dedicated Project Manager Agent, an Architect Agent, Designer and UX Expert Agents, Front End, Back End, and Language Specific Expert Developers and keep them all focused on what they are good at, and providing them real guardrails.
+Les Agents Personnalisés permettent de définir et d'orienter ce qu'un agent peut et ne peut pas faire, de manière plus directe que l'utilisation de fichiers de règles Cursor. Avec un agent personnalisé, vous pouvez spécifier quels outils l'agent peut et ne peut pas utiliser (à la fois natifs de Cursor et MCP), et plus important encore, vous pouvez contrôler quel modèle il utilise et lui donner une instruction personnalisée pour guider son fonctionnement. C'est comme une injection directe d'une règle "always" claire pour ce type spécifique d'agent que vous avez créé. Combiné avec le flux de travail Agile, vous pouvez avoir un Agent Chef de Projet dédié, un Agent Architecte, des Agents Experts en Design et UX, des Développeurs Front End, Back End et Experts en Langages Spécifiques, et les maintenir tous concentrés sur ce qu'ils font de mieux, en leur fournissant de véritables garde-fous.
 
-Cursor in an upcoming update will allow the creation and maintainability of these in a JSON file - in the meantime, these have to be created manually 1 by one in a gui that is a bit flaky and the text entry are is very small.
+Cursor dans une prochaine mise à jour permettra la création et la maintenance de ceux-ci dans un fichier JSON - en attendant, ceux-ci doivent être créés manuellement un par un dans une interface graphique un peu instable et la zone de saisie de texte est très petite.
 
-So I have come up with a file format to store all the information of my custom agents - which not currently used by cursor, it is an easy way to configure all of their options and define their custom prompts in a text editor - and then input or update via the GUI.
+J'ai donc conçu un format de fichier pour stocker toutes les informations de mes agents personnalisés - qui n'est pas actuellement utilisé par Cursor, c'est un moyen facile de configurer toutes leurs options et de définir leurs instructions personnalisées dans un éditeur de texte - puis de les saisir ou de les mettre à jour via l'interface graphique.
 
-You can see in the samples a star-trek-agents.md file - which is a themed fun take on the various roles or agents I might need that I used chatGPT to create and brain storm on. I then use a template and custom rule to transform that file to what becomes modes.json. For the sample, I took that output and saved it instead as star-trek-agents-modes.json in the samples folder. The modes.json file under .cursor is a more practical approach to some agents you can make that will work great with the agile workflow method.
+Vous pouvez voir dans les exemples un fichier star-trek-agents.md - qui est une approche thématique amusante des différents rôles ou agents dont je pourrais avoir besoin et que j'ai utilisé chatGPT pour créer et réfléchir. J'utilise ensuite un modèle et une règle personnalisée pour transformer ce fichier en ce qui devient modes.json. Pour l'exemple, j'ai pris cette sortie et l'ai enregistrée à la place sous le nom star-trek-agents-modes.json dans le dossier samples. Le fichier modes.json sous .cursor est une approche plus pratique pour certains agents que vous pouvez créer et qui fonctionneront très bien avec la méthode de flux de travail agile.
 
-In the future, that modes.json file will be replaced by the official file format from cursor, at which time this repo will be updated with the new convention.
+À l'avenir, ce fichier modes.json sera remplacé par le format de fichier officiel de Cursor, moment auquel ce dépôt sera mis à jour avec la nouvelle convention.
 
-## Best Practices
+## Bonnes Pratiques
 
-### Rule Creation
+### Création de Règles
 
-- Let AI handle rule creation and updates - but if you find stuff that is excessive or redundant, dont be afraid to prune the rules to help get them down to their core utility and essence
-- Be specific about desired behaviors
-- Provide examples of good/bad patterns
-- For new projects, allow organic rule emergence and try to have overall less rules, and rely more also on custom instructions for your custom agents.
-- If you start to have many very small rules applied to the same concept - for example you see your typescript rules subfolder has many files - you can ask the agent to consolidate and condense them down to a single file if they all generally apply and get picked up by the agent at the same time.
+- Laissez l'IA gérer la création et les mises à jour des règles - mais si vous trouvez des éléments excessifs ou redondants, n'hésitez pas à élaguer les règles pour les ramener à leur utilité et essence fondamentales
+- Soyez précis sur les comportements souhaités
+- Fournissez des exemples de bons/mauvais modèles
+- Pour les nouveaux projets, permettez l'émergence organique des règles et essayez d'avoir globalement moins de règles, et reposez-vous davantage sur des instructions personnalisées pour vos agents personnalisés
+- Si vous commencez à avoir de nombreuses petites règles appliquées au même concept - par exemple, vous voyez que votre sous-dossier de règles typescript contient de nombreux fichiers - vous pouvez demander à l'agent de les consolider et de les condenser en un seul fichier si elles s'appliquent toutes généralement et sont sélectionnées par l'agent en même temps
 
-### AI Behavior Control
+### Contrôle du Comportement de l'IA
 
-- Create rules when noticing inconsistent behavior
-- Use clear, descriptive language
-- Verify AI understanding by reviewing rules
+- Créez des règles lorsque vous remarquez un comportement incohérent
+- Utilisez un langage clair et descriptif
+- Vérifiez la compréhension de l'IA en examinant les règles
 
-### Workflow Integration
+### Intégration du Flux de Travail
 
-- Start with template rules
-- Let AI evolve rules as your project grows
-- Maintain consistency using AI for rule management
+- Commencez avec des règles modèles
+- Laissez l'IA faire évoluer les règles à mesure que votre projet se développe
+- Maintenez la cohérence en utilisant l'IA pour la gestion des règles
 
-### Rule Removal
+### Suppression de Règles
 
-- Some rules become unnecessary as codebase grows as the AI will follow surrounding code styles and conventions
-- The minimal amount of rules, the better - so prune rules as the codebase changes or models improve
-- A rule you need today, may be a rule you do not need tomorrow, and then again you might need it another day - trial and error and evolution is the key to dealing with the nondeterministic nature of what we are working with here.
+- Certaines règles deviennent inutiles à mesure que la base de code se développe, car l'IA suivra les styles de code environnants et les conventions
+- Le minimum de règles est le mieux - donc élaguez les règles à mesure que la base de code change ou que les modèles s'améliorent
+- Une règle dont vous avez besoin aujourd'hui peut être une règle dont vous n'aurez pas besoin demain, puis à nouveau vous pourriez en avoir besoin un autre jour - l'essai et l'erreur et l'évolution sont la clé pour faire face à la nature non déterministe de ce avec quoi nous travaillons ici
 
-## Files Excluded from Indexing
+## Fichiers Exclus de l'Indexation
 
-The `.cursorindexingignore` feature allows certain files to be accessible but excluded from indexing:
+La fonction `.cursorindexingignore` permet à certains fichiers d'être accessibles mais exclus de l'indexation :
 
-- Templates moved to `.cursor/templates` folder
-- Included in `.cursorindexingignore` but not in `.cursorignore`
-- XNotes remains in `.cursorignore` (files that need to move elsewhere to be used)
+- Modèles déplacés dans le dossier `.cursor/templates`
+- Inclus dans `.cursorindexingignore` mais pas dans `.cursorignore`
+- XNotes reste dans `.cursorignore` (fichiers qui doivent être déplacés ailleurs pour être utilisés)
 
-> 💡 **Compatibility:** Tested with Claude Sonnet 3.5, 3.7, 3.7 Thinking, o3-mini, and GPT-4o.
-> [Agile Workflow Documentation](docs/agile-readme.md)
+> 💡 **Compatibilité :** Testé avec Claude Sonnet 3.5, 3.7, 3.7 Thinking, o3-mini, et GPT-4o.
+> [Documentation du Flux de Travail Agile](docs/agile-readme.md)
 
-## Contributing
+## Contribution
 
-Contributions to improve base rules or suggest new templates are welcome. Please follow the established standards.
+Les contributions pour améliorer les règles de base ou suggérer de nouveaux modèles sont les bienvenues. Veuillez suivre les normes établies.
 
-## License
+## Licence
 
 MIT 🚀
