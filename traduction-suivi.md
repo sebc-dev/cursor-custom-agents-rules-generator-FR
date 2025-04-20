@@ -16,7 +16,7 @@ Les fichiers suivants ne doivent PAS être traduits conformément aux instructio
 
 | Fichier | Statut | Commentaires |
 |---------|--------|-------------|
-| `CHANGELOG.md` | À traduire | |
+| `CHANGELOG.md` | ✅ Traduit | Traduit le 20/04/2025 |
 | `readme.md` | À traduire | Document principal du projet |
 
 ### Dossier docs
@@ -93,7 +93,7 @@ Updated .gitignore, .cursorignore, and .cursorindexingignore
 ## Statut Global de Traduction
 
 - **Fichiers totaux à traduire** : 8 fichiers complets + 2 fichiers partiellement
-- **Fichiers traduits** : 0
-- **Progression** : 0%
+- **Fichiers traduits** : 1
+- **Progression** : 12,5%
 
 Dernière mise à jour : 20 avril 2025

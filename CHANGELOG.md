@@ -1,49 +1,49 @@
-# Changelog
+# Journal des Modifications
 
-## April 2025
+## Avril 2025
 
-### Fixed Clone of All Cursor Indexing Ignores
+### Correction du Clonage de Toutes les Entrées .cursorindexingignore
 
-Modified `apply-rules.sh` to properly copy all entries from the source `.cursorindexingignore` file to target projects. Previously, the script was only checking for and adding a single entry (`.cursor/templates/`).
+Modification de `apply-rules.sh` pour copier correctement toutes les entrées du fichier source `.cursorindexingignore` vers les projets cibles. Auparavant, le script ne vérifiait et n'ajoutait qu'une seule entrée (`.cursor/templates/`).
 
-**Note:** If you have cloned before and used the generator, be sure to manually update your `.cursorindexingignore` to include all entries listed in the template's ignore file.
+**Remarque :** Si vous avez cloné précédemment et utilisé le générateur, assurez-vous de mettre à jour manuellement votre `.cursorindexingignore` pour inclure toutes les entrées listées dans le fichier d'ignorance du modèle.
 
-## March 31, 2025
+## 31 Mars 2025
 
-Big change with this update is the creation of a samples folder with the star trek fictional characters agents, which is more of a fun illustrative (and fun way to work) example.
+Le grand changement avec cette mise à jour est la création d'un dossier d'exemples avec les agents de personnages fictifs de Star Trek, ce qui est un exemple plus illustratif (et amusant pour travailler).
 
-A more practical serious example is now in place is the modes.json file. Thank you to all feedback from the community - the samples will not be copied over.
+Un exemple plus pratique et sérieux est maintenant en place dans le fichier modes.json. Merci à tous les retours de la communauté - les exemples ne seront pas copiés automatiquement.
 
-## March 30, 2025
+## 30 Mars 2025
 
-Beginning of changelog - prior changes available in commit / merge history - but this will be maintained going forward.
+Début du journal des modifications - les changements antérieurs sont disponibles dans l'historique des commits/fusions - mais ce journal sera maintenu à l'avenir.
 
-Implemented Custom Agents and add a sample of what agents I use as an example with a fun star trek flair. Not intended for actual use, more for illustrative purposes.
+Implémentation des Agents Personnalisés et ajout d'un exemple des agents que j'utilise avec une touche amusante de Star Trek. Non destiné à une utilisation réelle, plutôt à des fins illustratives.
 
-Introduced instructions and rules to help generate your own Agent modes.json.
+Introduction d'instructions et de règles pour aider à générer votre propre fichier modes.json pour vos agents.
 
-Vastly improved rule generation to support better change of agent rules working more reliably.
+Amélioration considérable de la génération de règles pour mieux prendre en charge les changements dans les règles d'agents fonctionnant plus fiablement.
 
-Breaking bug introduced to apply-rules.bat that will be fixed ASAP.
+Bug critique introduit dans apply-rules.bat qui sera corrigé dès que possible.
 
-A sample agent select rule for typescript was added, and the git rule has also been converted to agent select and all rules are aligned to the much improved upgraded rule generator conventions.
+Une règle d'exemple de sélection d'agent pour TypeScript a été ajoutée, et la règle git a également été convertie en sélection d'agent. Toutes les règles sont alignées sur les conventions du générateur de règles grandement améliorées.
 
-## Pre March 30, 2025 Important Updates
+## Mises à Jour Importantes Avant le 30 Mars 2025
 
-## Massive Upgrade - Please read for the BEST cursor experience to date - this will change everything - March 31, 2025
+## Mise à Niveau Massive - Lisez ceci pour la MEILLEURE expérience cursor à ce jour - cela va tout changer - 31 Mars 2025
 
-### Big fix for Agent AutoSelect Rules
+### Correction Importante pour les Règles AutoSelect d'Agent
 
-Thank you to feedback from the community around this repo and in the cursor forums - an idea sparked about the description field that has been verified to be an amazing boost to agent auto selection of rules, becoming almost nearly not flaky - longer descriptions that really clearly tell it what types of scenarios or context it applies to - this was in the last version of this repo hidden away in more detail in the context that was broken by recent cursor optimization improvements to only consider the description for rule section! The rule-generating-agent has been updated to support this, integrating what was the context into the description field basically, further optimizing it to where the agent would have to be really dumb to not select it in the right scenario, or much easier to correct it!
+Grâce aux retours de la communauté autour de ce dépôt et dans les forums de cursor - une idée a émergé concernant le champ de description qui s'est avérée être un formidable coup de pouce pour la sélection automatique des règles par l'agent, devenant presque presque jamais instable. Des descriptions plus longues qui indiquent clairement les types de scénarios ou de contextes auxquels elles s'appliquent - c'était dans la dernière version de ce dépôt caché plus en détail dans le contexte qui a été brisé par les récentes améliorations d'optimisation de cursor pour ne considérer que la description pour la sélection de règles ! L'agent générateur de règles a été mis à jour pour prendre en charge cela, intégrant ce qui était le contexte dans le champ de description, l'optimisant davantage au point où l'agent devrait être vraiment idiot pour ne pas le sélectionner dans le bon scénario, ou beaucoup plus facile à corriger !
 
-All example rules in the repo have been updated - and a new agent select typescript rule example has also been added, that I have tested and have confirmed loads reliably.
+Toutes les règles d'exemple dans le dépôt ont été mises à jour - et un nouvel exemple de règle de sélection d'agent TypeScript a également été ajouté, que j'ai testé et confirmé qu'il se charge de manière fiable.
 
-### Game Changer Custom Agent Generation Tools and Rule - the future of workflows is multi tab custom agents!
+### Outils et Règles de Génération d'Agents Personnalisés Révolutionnaires - l'avenir des flux de travail est dans les onglets multiples d'agents personnalisés !
 
-New in the repo - example modes.json file to define your custom agents along with a template and rule to help you create these. The repo no includes in xnotes a custom-agents.md file, an example of what could be used in a prompt to cursor to then use the rule and template to generate the modes.json! While not officially used by cursor - the file will be similar to what they will release soon, but in the meantime can help you create the cursors by giving you the options to enter into the gui to create the custom agents (ensure you enable this current beta feature in the cursor settings). As soon as the version comes out to support it in cursor, this will be updated so that the rule can add to or update the new format once I have the new version that supports in in the coming weeks. But for now this is the best option, and much better than trying to manually type into the gui's tiny window for custom agent instructions. Check out .cursor/modes.json for the custom agents I am using (and still constantly tweaking).
+Nouveau dans le dépôt - fichier modes.json d'exemple pour définir vos agents personnalisés ainsi qu'un modèle et une règle pour vous aider à les créer. Le dépôt inclut maintenant dans xnotes un fichier custom-agents.md, un exemple de ce qui pourrait être utilisé dans une invite à cursor pour ensuite utiliser la règle et le modèle pour générer le modes.json ! Bien que non officiellement utilisé par cursor - le fichier sera similaire à ce qu'ils publieront bientôt, mais en attendant peut vous aider à créer les cursors en vous donnant les options à entrer dans l'interface graphique pour créer les agents personnalisés (assurez-vous d'activer cette fonctionnalité bêta actuelle dans les paramètres de cursor). Dès que la version sera disponible pour la prendre en charge dans cursor, cela sera mis à jour afin que la règle puisse ajouter ou mettre à jour le nouveau format une fois que j'aurai la nouvelle version qui la prend en charge dans les semaines à venir. Mais pour l'instant, c'est la meilleure option, et bien mieux que d'essayer de taper manuellement dans la petite fenêtre de l'interface graphique pour les instructions d'agent personnalisé. Consultez .cursor/modes.json pour les agents personnalisés que j'utilise (et que j'ajuste encore constamment).
 
-In the future I will start to have less rules - for example I am not using the manual workflow anymore as instead I talk to the proper agent in a tab that basically has the workflow built into their instruction set.
+À l'avenir, je commencerai à avoir moins de règles - par exemple, je n'utilise plus le flux de travail manuel car je parle plutôt à l'agent approprié dans un onglet qui a essentiellement le flux de travail intégré dans son ensemble d'instructions.
 
-## Important Note V 0.47+
+## Note Importante V 0.47+
 
-- I have updated the repo to properly add .cursor/rules/\* to the .cursorindexingignore - without this, you will run into a lot of flakiness when trying to edit or tweak an existing rule or change its type without reindexing the whole project. This will make A BIG difference.
+- J'ai mis à jour le dépôt pour ajouter correctement .cursor/rules/\* au .cursorindexingignore - sans cela, vous rencontrerez beaucoup d'instabilité lorsque vous essayerez de modifier ou d'ajuster une règle existante ou de changer son type sans réindexer l'ensemble du projet. Cela fera une GRANDE différence.
