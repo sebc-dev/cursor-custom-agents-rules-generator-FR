@@ -5,14 +5,14 @@ chcp 65001 >nul
 echo DEBUG: Script started
 
 if "%~1"=="" (
-    echo Error: Please provide the target project directory
-    echo Usage: %~nx0 ^<target-project-directory^>
+    echo Erreur : Veuillez fournir le répertoire cible du projet
+    echo Utilisation : %~nx0 ^<répertoire-cible-du-projet^>
     exit /b 1
 )
 set "TARGET_DIR=%~1"
 
 if not exist "%TARGET_DIR%\" (
-    echo Creating new project directory: %TARGET_DIR%
+    echo Création du nouveau répertoire du projet : %TARGET_DIR%
     mkdir "%TARGET_DIR%"
     (
         echo # New Project
@@ -33,15 +33,15 @@ REM Function to copy file if it doesn't exist
 set "src=%~1"
 set "dest=%~2"
 if not exist "%dest%" (
-    echo 📦 Copying new file: %~nx2
+    echo 📦 Copie du nouveau fichier : %~nx2
     copy "%src%" "%dest%" >nul
 ) else (
-    echo ⏭️  Skipping existing file: %~nx2
+    echo ⏭️  Ignorer le fichier existant : %~nx2
 )
 exit /b
 
 REM Copy all files from .cursor directory structure
-echo 📦 Copying .cursor directory files...
+echo 📦 Copie des fichiers du répertoire .cursor...
 for /r ".cursor" %%F in (*) do (
     set "rel_path=%%~pF"
     set "rel_path=!rel_path:.cursor\=!"
@@ -111,7 +111,7 @@ if exist "%TARGET_DIR%\.gitignore" (
 )
 
 REM Add sample xnotes
-echo Setting up sample xnotes file...
+echo Configuration des exemples xnotes...
 if not exist "%TARGET_DIR%\xnotes\" (
     mkdir "%TARGET_DIR%\xnotes"
 )
@@ -152,11 +152,11 @@ if exist "%TARGET_DIR%\.cursorindexingignore" (
 )
 
 echo.
-echo ✨ Deployment Complete!
-echo 📁 Core rule generator: %TARGET_DIR%\.cursor\rules\core-rules\rule-generating-agent.mdc
-echo 📁 Sample sub-folders and rules: %TARGET_DIR%\.cursor\rules\{sub-folders}\
-echo 📁 Sample Agile Workflow Templates: %TARGET_DIR%\.cursor\templates\
-echo 📄 Workflow Documentation: %TARGET_DIR%\docs\workflow-rules.md
-echo 🔒 Updated .gitignore, .cursorignore, and .cursorindexingignore
+echo ✨ Déploiement terminé !
+echo 📁 Générateur de règles principal : %TARGET_DIR%\.cursor\rules\core-rules\rule-generating-agent.mdc
+echo 📁 Exemples de sous-dossiers et règles : %TARGET_DIR%\.cursor\rules\{sub-folders}\
+echo 📁 Modèles de flux de travail agile : %TARGET_DIR%\.cursor\templates\
+echo 📄 Documentation du flux de travail : %TARGET_DIR%\docs\workflow-rules.md
+echo 🔒 .gitignore, .cursorignore, et .cursorindexingignore mis à jour
 
 endlocal

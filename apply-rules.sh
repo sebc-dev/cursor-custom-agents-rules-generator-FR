@@ -2,8 +2,8 @@
 
 # Check if target directory is provided
 if [ $# -eq 0 ]; then
-    echo "Error: Please provide the target project directory"
-    echo "Usage: ./apply-rules.sh <target-project-directory>"
+    echo "Erreur : Veuillez fournir le répertoire cible du projet"
+    echo "Utilisation : ./apply-rules.sh <répertoire-cible-du-projet>"
     exit 1
 fi
 
@@ -11,7 +11,7 @@ TARGET_DIR="$1"
 
 # Create target directory if it doesn't exist
 if [ ! -d "$TARGET_DIR" ]; then
-    echo "📁 Creating new project directory: $TARGET_DIR"
+    echo "📁 Création du nouveau répertoire du projet : $TARGET_DIR"
     mkdir -p "$TARGET_DIR"
     
     # Initialize readme for new project
@@ -33,15 +33,15 @@ copy_if_not_exists() {
     local dest="$2"
     
     if [ ! -e "$dest" ]; then
-        echo "📦 Copying new file: $(basename "$dest")"
+        echo "📦 Copie du nouveau fichier : $(basename "$dest")"
         cp "$src" "$dest"
     else
-        echo "⏭️  Skipping existing file: $(basename "$dest")"
+        echo "⏭️  Ignorer le fichier existant : $(basename "$dest")"
     fi
 }
 
 # Copy all files from .cursor directory structure
-echo "📦 Copying .cursor directory files..."
+echo "📦 Copie des fichiers du répertoire .cursor..."
 find .cursor -type f | while read -r file; do
     # Get the relative path from .cursor
     rel_path="${file#.cursor/}"
@@ -93,7 +93,7 @@ else
 fi
 
 # Create xnotes directory and copy files
-echo "📝 Setting up samples xnotes..."
+echo "📝 Configuration des exemples xnotes..."
 mkdir -p "$TARGET_DIR/xnotes"
 cp -r xnotes/* "$TARGET_DIR/xnotes/"
 
@@ -114,16 +114,16 @@ if [ -f "$TARGET_DIR/.cursorindexingignore" ]; then
     # Copy all entries from the source .cursorindexingignore to the target
     cp ".cursorindexingignore" "$TARGET_DIR/.cursorindexingignore"
     
-    echo "🔄 Updated .cursorindexingignore with all entries from source"
+    echo "🔄 .cursorindexingignore mis à jour avec toutes les entrées de la source"
 else
     # Create new file by copying the current one
     cp ".cursorindexingignore" "$TARGET_DIR/.cursorindexingignore"
-    echo "📝 Created new .cursorindexingignore file"
+    echo "📝 Nouveau fichier .cursorindexingignore créé"
 fi
 
-echo "✨ Deployment Complete!"
-echo "📁 Core rule generator: $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc"
-echo "📁 Sample subfolders and rules: $TARGET_DIR/.cursor/rules/{sub-folders}/"
-echo "📁 Sample Agile Workflow Templates: $TARGET_DIR/.cursor/templates/"
-echo "📄 Workflow Documentation: $TARGET_DIR/docs/workflow-rules.md"
-echo "🔒 Updated .gitignore, .cursorignore, and .cursorindexingignore"
+echo "✨ Déploiement terminé !"
+echo "📁 Générateur de règles principal : $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc"
+echo "📁 Exemples de sous-dossiers et règles : $TARGET_DIR/.cursor/rules/{sub-folders}/"
+echo "📁 Modèles de flux de travail agile : $TARGET_DIR/.cursor/templates/"
+echo "📄 Documentation du flux de travail : $TARGET_DIR/docs/workflow-rules.md"
+echo "🔒 .gitignore, .cursorignore, et .cursorindexingignore mis à jour"

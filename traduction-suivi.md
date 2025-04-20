@@ -36,50 +36,50 @@ Les fichiers suivants ne doivent PAS être traduits conformément aux instructio
 
 | Fichier | Statut | Commentaires |
 |---------|--------|-------------|
-| `custom-agents.md` | À traduire | |
-| `project-idea-prompt.md` | À traduire | |
+| `custom-agents.md` | ✅ Traduit | Traduit le 20/04/2025 |
+| `project-idea-prompt.md` | ✅ Traduit | Traduit le 20/04/2025 |
 
 ## Textes d'Affichage dans les Scripts
 
 ### Script apply-rules.bat
 
-Textes à traduire uniquement (sans modifier la structure du script) :
+Textes traduits (sans modifier la structure du script) :
 
 ```
-Error: Please provide the target project directory
-Usage: %~nx0 <target-project-directory>
-Creating new project directory: %TARGET_DIR%
-Copying new file: %~nx2
-Skipping existing file: %~nx2
-Copying .cursor directory files...
-Deployment Complete!
-Core rule generator: %TARGET_DIR%\.cursor\rules\core-rules\rule-generating-agent.mdc
-Sample sub-folders and rules: %TARGET_DIR%\.cursor\rules\{sub-folders}\
-Sample Agile Workflow Templates: %TARGET_DIR%\.cursor\templates\
-Workflow Documentation: %TARGET_DIR%\docs\workflow-rules.md
-Updated .gitignore, .cursorignore, and .cursorindexingignore
+Erreur : Veuillez fournir le répertoire cible du projet
+Utilisation : %~nx0 <répertoire-cible-du-projet>
+Création du nouveau répertoire du projet : %TARGET_DIR%
+Copie du nouveau fichier : %~nx2
+Ignorer le fichier existant : %~nx2
+Copie des fichiers du répertoire .cursor...
+Déploiement terminé !
+Générateur de règles principal : %TARGET_DIR%\.cursor\rules\core-rules\rule-generating-agent.mdc
+Exemples de sous-dossiers et règles : %TARGET_DIR%\.cursor\rules\{sub-folders}\
+Modèles de flux de travail agile : %TARGET_DIR%\.cursor\templates\
+Documentation du flux de travail : %TARGET_DIR%\docs\workflow-rules.md
+.gitignore, .cursorignore, et .cursorindexingignore mis à jour
 ```
 
 ### Script apply-rules.sh
 
-Textes à traduire uniquement (sans modifier la structure du script) :
+Textes traduits (sans modifier la structure du script) :
 
 ```
-Error: Please provide the target project directory
-Usage: ./apply-rules.sh <target-project-directory>
-Creating new project directory: $TARGET_DIR
-Copying new file: $(basename "$dest")
-Skipping existing file: $(basename "$dest")
-Copying .cursor directory files...
-Setting up samples xnotes...
-Updated .cursorindexingignore with all entries from source
-Created new .cursorindexingignore file
-Deployment Complete!
-Core rule generator: $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc
-Sample subfolders and rules: $TARGET_DIR/.cursor/rules/{sub-folders}/
-Sample Agile Workflow Templates: $TARGET_DIR/.cursor/templates/
-Workflow Documentation: $TARGET_DIR/docs/workflow-rules.md
-Updated .gitignore, .cursorignore, and .cursorindexingignore
+Erreur : Veuillez fournir le répertoire cible du projet
+Utilisation : ./apply-rules.sh <répertoire-cible-du-projet>
+Création du nouveau répertoire du projet : $TARGET_DIR
+Copie du nouveau fichier : $(basename "$dest")
+Ignorer le fichier existant : $(basename "$dest")
+Copie des fichiers du répertoire .cursor...
+Configuration des exemples xnotes...
+.cursorindexingignore mis à jour avec toutes les entrées de la source
+Nouveau fichier .cursorindexingignore créé
+Déploiement terminé !
+Générateur de règles principal : $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc
+Exemples de sous-dossiers et règles : $TARGET_DIR/.cursor/rules/{sub-folders}/
+Modèles de flux de travail agile : $TARGET_DIR/.cursor/templates/
+Documentation du flux de travail : $TARGET_DIR/docs/workflow-rules.md
+.gitignore, .cursorignore, et .cursorindexingignore mis à jour
 ```
 
 ## Instructions Importantes pour la Traduction
@@ -93,7 +93,7 @@ Updated .gitignore, .cursorignore, and .cursorindexingignore
 ## Statut Global de Traduction
 
 - **Fichiers totaux à traduire** : 8 fichiers complets + 2 fichiers partiellement
-- **Fichiers traduits** : 4,5
-- **Progression** : 56,25%
+- **Fichiers traduits** : 8 fichiers complets + 2 fichiers partiellement
+- **Progression** : 100%
 
 Dernière mise à jour : 20 avril 2025
