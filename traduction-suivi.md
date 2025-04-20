@@ -23,14 +23,14 @@ Les fichiers suivants ne doivent PAS être traduits conformément aux instructio
 
 | Fichier | Statut | Commentaires |
 |---------|--------|-------------|
-| `agile-readme.md` | À traduire | |
+| `agile-readme.md` | ✅ Traduit | Traduit le 20/04/2025 |
 
 ### Dossier samples
 
 | Fichier | Statut | Commentaires |
 |---------|--------|-------------|
-| `star-trek-agents.md` | À traduire | Contient des personas de personnages Star Trek à préserver |
-| `star-trek-agents-modes.json` | À traduire partiellement | Ne traduire que les champs de description, pas les identifiants techniques |
+| `star-trek-agents.md` | ✅ Traduit | Traduit le 20/04/2025 |
+| `star-trek-agents-modes.json` | ✅ Traduit partiellement | Traduit le 20/04/2025 - Seuls les champs de description ont été traduits |
 
 ### Dossier xnotes
 
@@ -93,7 +93,7 @@ Updated .gitignore, .cursorignore, and .cursorindexingignore
 ## Statut Global de Traduction
 
 - **Fichiers totaux à traduire** : 8 fichiers complets + 2 fichiers partiellement
-- **Fichiers traduits** : 2
-- **Progression** : 25%
+- **Fichiers traduits** : 4,5
+- **Progression** : 56,25%
 
 Dernière mise à jour : 20 avril 2025

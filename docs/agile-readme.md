@@ -1,24 +1,24 @@
-# Cursor Agile Workflow Documentation
+# Documentation du Flux de Travail Agile pour Cursor
 
-This document provides comprehensive documentation for the Agile workflow system integrated with Cursor's AI capabilities. The workflow is designed to maintain project focus and memory and ensure consistent progress through a structured approach to development.
+Ce document fournit une documentation complète pour le système de flux de travail Agile intégré aux capacités d'IA de Cursor. Le flux de travail est conçu pour maintenir la concentration et la mémoire du projet et assurer un progrès constant grâce à une approche structurée du développement.
 
-## Overview
+## Aperçu
 
-The Agile-Cursor workflow combines traditional Agile methodologies with AI-assisted development to create a powerful, efficient development process. It can be utilized in two primary ways:
+Le flux de travail Agile-Cursor combine les méthodologies Agile traditionnelles avec le développement assisté par IA pour créer un processus de développement puissant et efficace. Il peut être utilisé de deux manières principales :
 
-1. **Rule-Based Implementation** (Automatic)
+1. **Implémentation basée sur des règles** (Automatique)
 
-   - Uses `.cursor/rules/workflows/workflow-agile-manual` and `.cursor/templates`
-   - Automatically applies standards to matching files
-   - Provides consistent structure enforcement
+   - Utilise `.cursor/rules/workflows/workflow-agile-manual` et `.cursor/templates`
+   - Applique automatiquement les normes aux fichiers correspondants
+   - Fournit une application cohérente de la structure
 
-## Work Item Hierarchy
+## Hiérarchie des Éléments de Travail
 
 ```mermaid
 graph TD
-    E[Epic] --> S[Story]
-    S --> T[Task]
-    T --> ST[Subtask]
+    E[Épopée] --> S[Histoire]
+    S --> T[Tâche]
+    T --> ST[Sous-tâche]
 
     style E fill:#f9f,stroke:#333,stroke-width:2px
     style S fill:#dfd,stroke:#333,stroke-width:2px
@@ -26,80 +26,80 @@ graph TD
     style ST fill:#ffd,stroke:#333,stroke-width:2px
 ```
 
-1. **Epics**
+1. **Épopées**
 
-   - Large, self-contained features
-   - Only one active at a time
-   - Example: "Online Matchmaking System"
+   - Fonctionnalités importantes et autonomes
+   - Une seule active à la fois
+   - Exemple : "Système de matchmaking en ligne"
 
-2. **Stories**
+2. **Histoires**
 
-   - Smaller, implementable work units
-   - Must belong to an Epic
-   - Example: "User Profile Creation"
+   - Unités de travail plus petites et implémentables
+   - Doivent appartenir à une Épopée
+   - Exemple : "Création de profil utilisateur"
 
-3. **Tasks**
+3. **Tâches**
 
-   - Technical implementation steps
-   - Clear completion criteria
-   - Example: "Implement Database Schema"
+   - Étapes d'implémentation technique
+   - Critères d'achèvement clairs
+   - Exemple : "Implémentation du schéma de base de données"
 
-4. **Subtasks**
-   - Granular work items
-   - Often includes test requirements
-   - Example: "Write Unit Tests"
+4. **Sous-tâches**
+   - Éléments de travail granulaires
+   - Inclut souvent des exigences de test
+   - Exemple : "Écriture des tests unitaires"
 
-## AI Project Plan and Memory Structure the Workflow will result in
+## Structure de Plan de Projet et de Mémoire IA que le Flux de Travail produira
 
 ```
 .ai/
-├── prd.md                 # Product Requirements Document
-├── arch.md               # Architecture Decision Record
-├── epic-1/              # Current Epic directory
-│   ├── story-1.story.md  # Story files for Epic 1
+├── prd.md                 # Document des Exigences du Produit
+├── arch.md               # Enregistrement des Décisions d'Architecture
+├── epic-1/              # Répertoire de l'Épopée actuelle
+│   ├── story-1.story.md  # Fichiers d'histoire pour l'Épopée 1
 │   ├── story-2.story.md
 │   └── story-3.story.md
-├── epic-2/              # Future Epic directory
+├── epic-2/              # Répertoire d'Épopée future
 │   └── ...
-└── epic-3/              # Future Epic directory
+└── epic-3/              # Répertoire d'Épopée future
     └── ...
 ```
 
-## Workflow Phases
+## Phases du Flux de Travail
 
-### 1. Initial Planning
+### 1. Planification Initiale
 
-- Focus on documentation and planning
-- Only modify `.ai/`, docs, readme, and rules
-- Required approvals for PRD and then the Architecture
+- Accent sur la documentation et la planification
+- Modification uniquement de `.ai/`, docs, readme et règles
+- Approbations requises pour le PRD puis l'Architecture
 
-### 2. Development Phase
+### 2. Phase de Développement
 
-- Generates the first or next story and waits on approval
-- Implementation of approved in progress story
-- Task-by-task story execution
-- Continuous testing and validation
+- Génère la première ou la prochaine histoire et attend l'approbation
+- Implémentation de l'histoire approuvée en cours
+- Exécution de l'histoire tâche par tâche
+- Tests et validation continus
 
 ```mermaid
 graph LR
-    subgraph PLAN Phase
-        A[Project Idea] --> B[PRD Creation]
-        B --> C[Architecture Design]
-        C --> D[Epic Planning]
-        D --> E[Story Definition]
+    subgraph Phase PLAN
+        A[Idée de Projet] --> B[Création du PRD]
+        B --> C[Conception de l'Architecture]
+        C --> D[Planification de l'Épopée]
+        D --> E[Définition de l'Histoire]
     end
 
-    subgraph ACT Phase
-        E --> F[Story Implementation]
-        F --> G[Testing & Validation]
-        G --> H[Story Completion]
+    subgraph Phase ACT
+        E --> F[Implémentation de l'Histoire]
+        F --> G[Tests & Validation]
+        G --> H[Achèvement de l'Histoire]
     end
 
-    subgraph Iteration
-        H --> |Next Story|E
-        H --> |Epic Complete|I[Epic Completion]
-        I --> |Next Epic|D
-        I --> |Project Complete|J[Release]
+    subgraph Itération
+        H --> |Histoire Suivante|E
+        H --> |Épopée Terminée|I[Achèvement de l'Épopée]
+        I --> |Épopée Suivante|D
+        I --> |Projet Terminé|J[Publication]
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
@@ -114,133 +114,133 @@ graph LR
     style J fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
-## Implementation Guidelines
+## Directives d'Implémentation
 
-### Story Implementation Process
+### Processus d'Implémentation d'Histoire
 
-1. **Initialization**
+1. **Initialisation**
 
-   - Verify `.ai` directory exists
-   - Locate approved architecture and current story
-   - Ensure story is properly marked as in-progress
+   - Vérifier que le répertoire `.ai` existe
+   - Localiser l'architecture approuvée et l'histoire actuelle
+   - S'assurer que l'histoire est correctement marquée comme en cours
 
-2. **Development Flow**
+2. **Flux de Développement**
 
-   - Follow Test-Driven Development (TDD)
-   - Update task/subtask status regularly
-   - Document all implementation notes
-   - Record significant commands used
+   - Suivre le Développement Piloté par les Tests (TDD)
+   - Mettre à jour régulièrement le statut des tâches/sous-tâches
+   - Documenter toutes les notes d'implémentation
+   - Enregistrer les commandes importantes utilisées
 
-3. **Completion Requirements**
-   - All tests must pass
-   - Documentation must be updated
-   - User must approve completion
+3. **Exigences d'Achèvement**
+   - Tous les tests doivent passer
+   - La documentation doit être mise à jour
+   - L'utilisateur doit approuver l'achèvement
 
-### Critical Rules
+### Règles Critiques
 
-> 🚨 **Critical Rules:**
+> 🚨 **Règles Critiques :**
 >
-> - Never creates first story without PRD and Architecture approval
-> - Only one Epic can be in-progress at a time
-> - Only one Story can be in-progress at a time
-> - Stories must be implemented in PRD-specified order
-> - Never implement without story approval from user (marked as in progress on the story file)
+> - Ne jamais créer la première histoire sans l'approbation du PRD et de l'Architecture
+> - Une seule Épopée peut être en cours à la fois
+> - Une seule Histoire peut être en cours à la fois
+> - Les Histoires doivent être implémentées dans l'ordre spécifié par le PRD
+> - Ne jamais implémenter sans l'approbation de l'histoire par l'utilisateur (marquée comme en cours dans le fichier de l'histoire)
 
-## Using the Workflow
+## Utilisation du Flux de Travail
 
-The best way post 0.47.x+ of cursor is to use the rules based approach, with either manual, agent selection or always on rules. I prefer manual selection type rule for the workflows, so that they will not be in a context if I do not need it (explanation to follow).
+La meilleure façon après la version 0.47.x+ de cursor est d'utiliser l'approche basée sur les règles, avec des règles manuelles, de sélection d'agent ou toujours activées. Je préfère les règles de type sélection manuelle pour les flux de travail, afin qu'elles ne soient pas dans un contexte si je n'en ai pas besoin (explication à suivre).
 
-If I am starting a brand new project (with our without an existing code template) I have a few options:
+Si je commence un tout nouveau projet (avec ou sans un modèle de code existant), j'ai quelques options :
 
-- Use an external tool to generate the PRD (Such as ChatGPT Canvas or o3 mini Web UI or Google AI Studio)
-- Use the workflow and agent in cursor to generate the PRD
-  (This comes down to personal preference and consideration of token burn within cursor)
+- Utiliser un outil externe pour générer le PRD (comme ChatGPT Canvas, o3 mini Web UI ou Google AI Studio)
+- Utiliser le flux de travail et l'agent dans cursor pour générer le PRD
+  (Cela dépend des préférences personnelles et de la prise en compte de la consommation de tokens dans cursor)
 
-If I am doing this in cursor, I will start a new Agent chat with Claude 3.7 Thinking (or choose a different model if concerned about credit burn) and type something like:
+Si je fais cela dans cursor, je commencerai une nouvelle conversation Agent avec Claude 3.7 Thinking (ou choisirai un modèle différent si je m'inquiète de la consommation de crédits) et taperai quelque chose comme :
 
-`Lets follow the @workflow-agile-manual to create a PRD for a new project I want to create that will do XYZ, have the following features etc etc. Lets focus on just the MVP feature first will be to deliver X minimally, but lets also plan to have some epics for fast follows or future enhancements such as A B and C.`
+`Suivons le @workflow-agile-manual pour créer un PRD pour un nouveau projet que je veux créer qui fera XYZ, avec les fonctionnalités suivantes, etc. Concentrons-nous d'abord sur la fonctionnalité MVP qui sera de livrer X de manière minimale, mais prévoyons également quelques épopées pour des améliorations rapides ou futures telles que A, B et C.`
 
-As this can be quite lengthy, I will many times craft this prompt in the xnotes folder, and then paste it into the chat, ensuring that the @workflow is still properly added.
+Comme cela peut être assez long, je vais souvent rédiger cette demande dans le dossier xnotes, puis la coller dans le chat, en veillant à ce que le @workflow soit toujours correctement ajouté.
 
-Note: you can also modify the workflow-agile-manual to be Agent auto-selectable, this work reliably well also - you will just need to ensure the description you give it in the front matter will ensure its used when needed (PRD story and work implementation phases) - or potentially just make it an always rule. When starting out, its fine to make it an always rule, until your project grows to a very significant size, then I suggest turning it off manually, as at that point you might be just going in and making very targeted updates to specific files or features - and do not need the whole workflow as overhead - or you might want to instead select a different workflow (maybe a refactor workflow, a test workflow, an external MCP agent, etc...)
+Remarque : vous pouvez également modifier le workflow-agile-manual pour qu'il soit auto-sélectionnable par l'agent, cela fonctionne aussi de manière fiable - vous devrez simplement vous assurer que la description que vous lui donnez dans le frontmatter garantira son utilisation quand nécessaire (phases d'implémentation de PRD, d'histoire et de travail) - ou potentiellement en faire une règle "always". En commençant, c'est bien d'en faire une règle always, jusqu'à ce que votre projet atteigne une taille très significative, puis je suggère de la désactiver manuellement, car à ce stade, vous pourriez simplement faire des mises à jour très ciblées sur des fichiers ou des fonctionnalités spécifiques - et ne pas avoir besoin de tout le flux de travail en surcharge - ou vous pourriez vouloir sélectionner un flux de travail différent (peut-être un flux de travail de refactorisation, un flux de travail de test, un agent MCP externe, etc...)
 
-The agent should generate a draft prd.md file in a .ai folder.
+L'agent devrait générer un brouillon de fichier prd.md dans un dossier .ai.
 
-I suggest at this point, you do not approve and jump right in - either in cursor with the agent, or an external tool - engage further with the agent to refine the document, have the agent ask you questions on holes in the document that it might want to know the answer to, ask the agent if it needs any clarifications that will allow for a very jr agent developer to understand and implement the stories, ask the agent if the sequencing of the stories make sense etc...
+Je suggère à ce stade de ne pas approuver et de vous lancer directement - soit dans cursor avec l'agent, soit avec un outil externe - engagez-vous davantage avec l'agent pour affiner le document, demandez à l'agent de vous poser des questions sur les lacunes du document auxquelles il pourrait vouloir des réponses, demandez à l'agent s'il a besoin de clarifications qui permettraient à un agent développeur junior de comprendre et d'implémenter les histoires, demandez à l'agent si l'enchaînement des histoires a du sens, etc.
 
-Once you feel its in a good spot - you can mark the file as status: approved.
+Une fois que vous estimez qu'il est dans un bon état, vous pouvez marquer le fichier comme status: approved.
 
-At this point, I would start another chat and with the workflow - the agent will first check for the prd, and then if its approved, will offer to create (if not already existing and approved) the architecture file - and similar a new chat window with the workflow will search for the new first or in progress story.
+À ce stade, je commencerais une autre conversation avec le flux de travail - l'agent vérifiera d'abord le prd, et ensuite, s'il est approuvé, proposera de créer (si ce n'est pas déjà existant et approuvé) le fichier d'architecture - et similairement, une nouvelle fenêtre de chat avec le flux de travail recherchera la première histoire ou l'histoire en cours.
 
-Once a story is in progress and approved by the user - the agent can be told to execute the story. Once a story or part of a story is completed and the story file is updated with progress by the agent, commit often (I use my manual gitpush.mdc manual rule macro). After this, I might start a new chat window with a fresh context and the workflow again loaded. Once a story is complete (status: complete) and tested and pushed, I always will start a new chat window with the workflow, and ask the agent to 'Create the next story draft' - or just ask it what it thinks it should do next, it should recognize what is next story to do from the prd and what story was last marked completed, and generate a draft for the next story, and then stop and ask for my approval before doing any further coding.
+Une fois qu'une histoire est en cours et approuvée par l'utilisateur, on peut demander à l'agent d'exécuter l'histoire. Une fois qu'une histoire ou une partie d'une histoire est terminée et que le fichier d'histoire est mis à jour avec les progrès par l'agent, je fais des commits fréquents (j'utilise ma règle manuelle macro gitpush.mdc). Après cela, je pourrais démarrer une nouvelle fenêtre de chat avec un contexte frais et le flux de travail rechargé. Une fois qu'une histoire est terminée (status: complete), testée et poussée, je commence toujours une nouvelle fenêtre de chat avec le flux de travail, et je demande à l'agent de "Créer le brouillon de la prochaine histoire" - ou je lui demande simplement ce qu'il pense devoir faire ensuite, il devrait reconnaître quelle est la prochaine histoire à faire à partir du prd et quelle histoire a été marquée comme terminée en dernier, et générer un brouillon pour la prochaine histoire, puis s'arrêter et demander mon approbation avant de poursuivre le codage.
 
-A more detailed example, up to date repo and video coming soon, but this should give the main ideas...
+Un exemple plus détaillé, un dépôt à jour et une vidéo arriveront bientôt, mais cela devrait donner les idées principales...
 
-NOTE: Some models (Sonnet 3.7 thinking) have gotten a bit overly aggressive, so the rules might need to be tuned to further ensure the agent does not start updating code until the story is approved.
+REMARQUE : Certains modèles (Sonnet 3.7 thinking) sont devenus un peu trop agressifs, donc les règles pourraient devoir être ajustées pour garantir davantage que l'agent ne commence pas à mettre à jour le code tant que l'histoire n'est pas approuvée.
 
-## Best Practices
+## Meilleures Pratiques
 
-1. **Documentation and tips**
+1. **Documentation et conseils**
 
-   - AI will keep PRD and Architecture documents updated - sometimes you will need to tell it to update the prd and arch files as needed.
-   - Document all significant decisions
-   - Maintain clear implementation notes
-   - Have the AI create readme.md files in each src subfolder to help give it direction
+   - L'IA maintiendra les documents PRD et Architecture à jour - parfois, vous devrez lui dire de mettre à jour les fichiers prd et arch si nécessaire.
+   - Documentez toutes les décisions importantes
+   - Maintenez des notes d'implémentation claires
+   - Faites créer par l'IA des fichiers readme.md dans chaque sous-dossier src pour l'aider à s'orienter
 
-2. **Testing**
+2. **Tests**
 
-   - Have the AI Write tests before implementation - a fun excercise in TDD
-   - Maintain high test coverage
-   - Verify all tests pass before completion
+   - Faites écrire les tests par l'IA avant l'implémentation - un exercice amusant de TDD
+   - Maintenez une couverture de test élevée
+   - Vérifiez que tous les tests passent avant l'achèvement
 
-3. **Progress Tracking**
+3. **Suivi des Progrès**
 
-   - Have the AI (or you) update story status regularly
-   - Record all implementation notes
-   - Document command history
+   - Faites mettre à jour régulièrement le statut de l'histoire par l'IA (ou vous-même)
+   - Enregistrez toutes les notes d'implémentation
+   - Documentez l'historique des commandes
 
-4. **Context Management**
-   - Start fresh composer instance per story or after significant recorded progress (recorded in task completion updates)
-   - Use appropriate context level
-   - Minimize context overhead
-   - Consider making a leaner workflow when you are in story execution mode - that does not need all of the templates and overhead of how to create a prd and a architecture. But you will need to consider what other files or parts of other files it might need reference to to retain the plot. This is why currently I still use the full workflow.
+4. **Gestion du Contexte**
+   - Démarrez une nouvelle instance du compositeur par histoire ou après des progrès significatifs enregistrés (enregistrés dans les mises à jour d'achèvement des tâches)
+   - Utilisez le niveau de contexte approprié
+   - Minimisez la surcharge de contexte
+   - Envisagez de créer un flux de travail plus léger lorsque vous êtes en mode d'exécution d'histoire - qui n'a pas besoin de tous les modèles et de la surcharge de comment créer un prd et une architecture. Mais vous devrez considérer quels autres fichiers ou parties d'autres fichiers il pourrait avoir besoin de référencer pour conserver l'intrigue. C'est pourquoi j'utilise actuellement encore le flux de travail complet.
 
-## Status Progression
+## Progression des Statuts
 
-Stories follow a strict status progression:
-
-```
-Draft -> In Progress -> Complete
-```
-
-Epics follow a similar progression:
+Les histoires suivent une progression de statut stricte :
 
 ```
-Future -> Current -> Complete
+Brouillon -> En Cours -> Terminé
 ```
 
-## Integration with Cursor AI
+Les épopées suivent une progression similaire :
 
-The workflow is designed to work seamlessly with Cursor's AI capabilities:
+```
+Future -> Actuelle -> Terminée
+```
 
-1. **AI-Assisted Planning**
+## Intégration avec l'IA de Cursor
 
-   - AI helps create and refine PRD
-   - AI suggests architecture improvements
-   - AI assists in story breakdown
+Le flux de travail est conçu pour fonctionner harmonieusement avec les capacités d'IA de Cursor :
 
-2. **AI-Assisted Implementation**
+1. **Planification Assistée par IA**
 
-   - AI implements story tasks
-   - AI maintains test coverage
-   - AI updates documentation
+   - L'IA aide à créer et affiner le PRD
+   - L'IA suggère des améliorations d'architecture
+   - L'IA aide à la décomposition des histoires
 
-3. **AI-Assisted Review**
-   - AI verifies completion criteria
-   - AI suggests improvements
-   - AI maintains consistency
+2. **Implémentation Assistée par IA**
 
-## Cost Savings
+   - L'IA implémente les tâches d'histoire
+   - L'IA maintient la couverture de test
+   - L'IA met à jour la documentation
 
-- LLMs outside of Cursor, if you have them available, such as ChatGPT, Claude, Gemini, etc. are also great to generate the initial PRD and architecture, and really iterate on them.
-- Within Cursor, currently you can use DeepSeek R1 for example which seems to be free and also decent and udpating PRD and architecture - but I have found it to be a bit less reliable than using Claude to follow the format I want - but much cheaper, if trying to do it all in cursor planning.
+3. **Revue Assistée par IA**
+   - L'IA vérifie les critères d'achèvement
+   - L'IA suggère des améliorations
+   - L'IA maintient la cohérence
+
+## Économies de Coûts
+
+- Les LLM en dehors de Cursor, si vous y avez accès, comme ChatGPT, Claude, Gemini, etc. sont également excellents pour générer le PRD initial et l'architecture, et vraiment itérer dessus.
+- Dans Cursor, actuellement vous pouvez utiliser DeepSeek R1 par exemple qui semble être gratuit et également décent pour mettre à jour le PRD et l'architecture - mais j'ai trouvé qu'il est un peu moins fiable que d'utiliser Claude pour suivre le format que je veux - mais beaucoup moins cher, si vous essayez de faire toute la planification dans cursor.
